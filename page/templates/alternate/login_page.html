@@ -1,0 +1,318 @@
+<!doctype htmsmall>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+  <title>Login | Alpha Chi Sigma, Sigma Chapter</title>
+
+  <link rel="shortcut icon" type="text/css" href="http://axs.berkeley.edu/static/img/favicon.ico">
+
+  <link rel="stylesheet" href="http://axs.berkeley.edu/static/css/normalize.css">
+  <link rel="stylesheet" href="http://axs.berkeley.edu/static/css/foundation.css">
+  <link rel="stylesheet" href="http://axs.berkeley.edu/static/css/axe.css">
+
+  <script src="http://axs.berkeley.edu/static/js/app.js"></script>
+  <script src="http://axs.berkeley.edu/static/js/vendor/modernizr.js"></script>
+</head>
+<body>
+  <div class="contain-to-grid">
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="http://ocf.berkeley.edu/~sigma/home/">Alpha Chi Sigma</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+      </ul>
+      <section class="top-bar-section">
+        <ul class="left">
+          <li class="divider"></li>
+          <li><a href="http://ocf.berkeley.edu/~sigma/rush/"><strong>Rush AXΣ!</strong></a></li>
+          <li class="divider"></li>
+          <li><a href="http://ocf.berkeley.edu/~sigma/events/">Events</a></li>
+          <li class="divider"></li>
+          <li class="has-dropdown">
+            <a href="http://ocf.berkeley.edu/~sigma/resources/">Resources</a>
+            <ul class="dropdown">
+              <li><a href="http://ocf.berkeley.edu/~sigma/resources/">Tutoring</a></li>
+              <li>
+                <a href="http://ocf.berkeley.edu/~sigma/resources/exams/">Test Bank</a>
+              </li>
+            </ul>
+          </li>
+          <li class="divider"></li>
+          <li class="has-dropdown">
+            <a href="http://ocf.berkeley.edu/~sigma/house-info/">House Info</a>
+            <ul class="dropdown">
+              <li><a href="http://ocf.berkeley.edu/~sigma/house-info/about/">About</a></li>
+              <li>
+                <a href="http://ocf.berkeley.edu/~sigma/house-info/rules/">Rules</a>
+              </li>
+              <li>
+                <a href="http://ocf.berkeley.edu/~sigma/house-info/gallery/">Gallery</a>
+              </li>
+              <li>
+                <a href="http://ocf.berkeley.edu/~sigma/house-info/faq/">FAQ</a>
+              </li>
+            </ul>
+          </li>
+          <li class="divider"></li>
+        </ul>
+        <ul class="right">
+          {% if is_logged_in %}
+          <li class="divider"></li>
+            <li class="has-dropdown">
+          {% else %}
+            <li class="has-dropdown hide">
+          {% endif %}
+              <a href="#">Logged in as {{ user_name.first_name }} {{ user_name.last_name}}</a>
+              <ul class="dropdown">
+                <li class="has-dropdown">
+                  <a href="contacts/">Member List</a>
+                  <ul class="dropdown">
+                    <li class="back"><a href="officers/">Officers</a></li>
+                    <li><a href="contacts/">Contact Info</a></li>
+                    <li><a href="familytree/">Family Tree</a></li>
+                  </ul>
+                </li>
+                <li class="has-dropdown">
+                  <a href="gallery/">Gallery</a>
+                  <ul class="dropdown">
+                    <li class="back"><a href="gallery/photos/">Photos</a></li>
+                    <li><a href="gallery/videos/">Videos</a></li>
+                  </ul>
+                </li>
+                <li class="has-dropdown">
+                  <a href="resources/">Member Resources</a>
+                  <ul class="dropdown">
+                    <li><a href="resources/problem-sets/">Problem Sets</a></li>
+                  </li>
+                  <li><a href="resources/forms/">Forms</a></li>
+                  <li><a href="resources/bylaws/">Bylaws</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="divider"></li>
+          {% if is_logged_in %}
+          <li class="has-form">
+            <!--<a href="http://axs.berkeley.edu/logout/" class="button">Logout</a>-->
+            <form method="post">
+            {% csrf_token %}
+              <input name="submit3" type="submit" class="button" value="Logout">
+            </form>
+          </li>                                   
+          {% else %}
+          <!--li class="has-form">
+            <a href="#" class="button">Login</a>
+          </li-->
+          {% endif %} 
+        </ul>
+      </section>
+    </nav>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <h1>Login</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-6 small-12 columns">
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="panel text-center">
+            <form method="post">
+              {% csrf_token %}
+              <div class="row">
+                <div class="large-12 columns">
+                  <h3>Existing User?</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="large-12 columns">
+                  <label for="your_name">
+                    <input name="your_name" id="your_name1" type="text" placeholder="Username" />
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="large-12 columns">
+                  <label for="password">
+                    <input name="password" id="password" type="password" placeholder="Password" />
+                  </label>
+                </div>
+              </div>
+              <input name="submit1" type="submit" class="button expand small radius" value="Login!" />
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="panel text-center">
+            <p>If you're an Alpha Chi Sigma member, you can login here to access all of our member-only content.</p>
+            <p>If you're not already a member, then <a href="http://axs.berkeley.edu/rush/">consider rushing</a>.  If you're having trouble logging in or registering, <a href="mailto:webmaster@axs.berkeley.edu">let us know</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="large-6 small-12 columns">
+      <div class="panel">
+        <form data-abide method = "post">
+          {% csrf_token %}
+          <div class="row">
+            <div class="large-12 columns">
+              <h3 class="text-center">New User?</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-6 columns">
+              <label for "first_name">
+                <input id="first_name" name="first_name" type="text" placeholder="First Name" required pattern="[a-zA-Z\-\']+" />
+              </label>
+              <small class="error text-center">Valid name required</small>
+            </div>
+            <div class="large-6 columns">
+              <label for "last_name">
+                <input id="last_name" name="last_name" type="text" placeholder="Last Name" required pattern="[a-zA-Z\-\']+" />
+              </label>
+              <small class="error text-center">Valid name required</small>
+            </div>
+          </div>
+          <div class="row collapse">
+            <div class="large-4 columns">
+              <label for="pledge_year">
+                <input name="pledge_year" id="pledge_year" type="text" placeholder="Rush Year" required pattern="(19|20)[0-9]{2}" />
+              </label>
+              <small class="error text-center">Valid year required</small>
+            </div>
+           <div class="large-3 columns">
+              <select class="grayed" onchange="changeMe(this)" required>
+                <option class="grayed" value="" disabled selected style="display:none;">Season</option>
+                <option class="grayed" value="spring">Spring</option>
+                <option class="grayed" value="fall">Fall</option>
+              </select>
+              <small class="error text-center">Season required</small>
+            </div>
+            <div class="large-4 columns">
+              <select class="grayed" onchange="changeMe(this)" required>
+                <option class="grayed" value="" disabled selected style="display:none;">Current Year</option>
+                <option class="grayed" value="freshman">Freshman (1 year)</option>
+                <option class="grayed" value="sophomore">Sophomore (2 years)</option>
+                <option class="grayed" value="junior">Junior (3 years)</option>
+                <option class="grayed" value="senior">Senior (4 years)</option>
+                <option class="grayed" value="supersenior">Supersenior (5+ years)</option>
+                <option class="grayed" value="grad">Graduate Student</option>
+                <option class="grayed" value="alumnus">Alumnus</option>
+              </select>
+              <small class="error text-center">Standing required</small>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-12 columns">
+              <label for="major">
+                <input name="major" id="major" type="text" placeholder="[Intended] Major(s)" required pattern=".*\w+.*" />
+              </label>
+              <small class="error text-center">Major information required</small>
+            </div>
+          </div>
+          <div class="row collapse">
+            <div class="large-9 small-7 columns">
+              <label for="email">
+                <input name="email" id="email" type="text" placeholder="Email Address" required />
+              </label>
+              <small class="error text-center">Valid email address required</small>
+            </div>
+            <div class="large-3 small-5 columns">
+              <span class="postfix">@berkeley.edu</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-12 columns">
+              <label for="your_name">
+                <input name="your_name" id="your_name2" type="text" placeholder="Username" required pattern="[a-zA-Z0-9]+"/>
+              </label>
+              <small class="error text-center">Alphanumeric username required</small>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-6 columns">
+              <label for="password">
+                <input id="password2" type="password" name="password" placeholder="Password" required />
+              </label>
+              <small class="error text-center">Valid password required</small>
+            </div>
+            <div class="large-6 columns">
+              <label>
+                <input id="password3" type="password" data-equalto="password2" name="confirm_password" placeholder="Confirm Password" required data-invalid="" />
+              </label>
+              <small class="error text-center" data-error-message="">Passwords must match.</small>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-12 columns">
+              <label for="regcode">
+                <input id="regcode" type="text" name="regcode"  input type="text" placeholder="Double-Secret Super Special Awesome Registration Code" required />
+              </label>
+              <small class="error text-center">Dude...it's, like, totally mandatory, man.  Whoa.  Dude.  Duuude.</small>
+            </div>
+          </div>
+          <input name="submit2" type = "submit" class="button expand small radius" value="Register">
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <hr />
+  </div>
+
+  <div class="row">
+    <div class="small-12 small-centered columns">
+      <div class="panel footer">
+        <div class="row">
+          <div class="large-2 columns">
+            &nbsp;
+          </div>
+          <div class="large-8 small-12 columns">
+            <h6 class="text-center"><small>&copy; 2014 Alpha Chi Sigma, Sigma Chapter</small></h6>
+            <h6 class="text-center"><small>If you have any questions, comments, or concerns, <a href="mailto:webmaster@axs.berkeley.edu">please let us know</a>.</small></h6>
+            <h6 class="text-center"><small>This website was created using <a href="http://foundation.zurb.com/">Zurb Foundation 5.2.2</a> and <a href="https://www.djangoproject.com/">Django 1.4.5</a>.</small></h6>
+            <h6 class="text-center show-for-large-up"><small>We are a student group acting independently of the UC System. We take full responsibility for our organization and this website.</small></h6>
+            <h6 class="text-center hide-for-large-up"><small>We are a student group acting independently of the UC System.</small></h6>
+            <h6 class="text-center hide-for-large-up"><small>We take full responsibility for our organization and this website.</small></h6>
+            <h6 class="text-center"><small><a href="http://www.alphachisigma.org/">Alpha Chi Sigma National</a> | <a href="http://chemistry.berkeley.edu/">College of Chemistry</a> | <a href="http://berkeley.edu/">UC Berkeley</a></small></h6>
+          </div>
+          <div class="large-2 small-12 columns">
+            <a class="right hide-for-small-only" href="http://www.ocf.berkeley.edu">
+              <img src="http://axs.berkeley.edu/static/img/ocfbadge_mini8dark.png" alt="Hosted by the OCF" width="98" height="39" style="border:0" />
+            </a>
+            <div class="show-for-small-only">
+              <br />
+              <a class="text-center show-for-small-only" href="http://www.ocf.berkeley.edu">
+                <img src="http://axs.berkeley.edu/static/img/ocfbadge_mini8dark.png" alt="Hosted by the OCF" width="98" height="39" style="border:0" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="http://axs.berkeley.edu/static/js/vendor/jquery.js"></script>
+  <script src="http://axs.berkeley.edu/static/js/vendor/fastclick.js"></script>
+  <script src="http://axs.berkeley.edu/static/js/foundation.min.js"></script>
+  <script>
+  $(document).foundation();
+  </script>
+  <script type="text/javascript">
+    function changeMe(sel)
+    {
+      sel.style.color = "#000";              
+    }
+</script>
+
+
+</body>
+
+</html>
