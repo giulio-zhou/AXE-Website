@@ -51,14 +51,11 @@ def reallogin(request):
 
 def register(request):
 	if request.method == 'POST':
-		#return HttpResponse('<html><body>{0}  {1}</body></html>'.format(request.POST, RegCode.objects.all()))
-		#print request.POST, 'submit1' in request.POST
 		if 'submit2' in request.POST:
 			form = RegisterForm(request.POST)
-			print request.method, form.is_valid(), request.POST
+#print request.method, form.is_valid(), request.POST
 			if form.is_valid():
 				try:
-				#   if form.cleaned_data['password'] == form.cleaned_data['password_confirm
 						regcode = RegCode.objects.get(code=form.cleaned_data['regcode'])
 						regcode.delete()
 						user = User.objects.create_user(form.cleaned_data['your_name'],
@@ -67,32 +64,24 @@ def register(request):
 							                                                    year_in_school=2, major=form.cleaned_data['major'])
 						user.first_name = form.cleaned_data['first_name']
 						user.last_name = form.cleaned_data['last_name']
-						#print user.member
 						user.save()
 						user.member.save()
 						return HttpResponse("<html><body>Successfully Registered User %s!</body></html>" % form.cleaned_data['your_name'])
-				#return HttpResponse("<html><body>lolol</body></html>")
 				except RegCode.DoesNotExist:
-					print 'lol'
+					print 'Registration Code Does Not Exist'
 			form = RegisterForm()
 		elif 'submit1' in request.POST:
 			form = LoginForm(request.POST)
-			#print 'Trying to log in'
 			if form.is_valid():
 				user = authenticate(username=form.cleaned_data['your_name'], password=form.cleaned_data['password'])
-				#print user
 				if user is not None:
 					login(request, user)
-#return HttpResponse('Successfully logged in user %s!' % user.username)
 			form = RegisterForm()
 		elif 'submit3' in request.POST:
 			logout(request)
 			form = RegisterForm()
-		#return HttpResponse("<html><body>%s</body></html>" % request.POST.__str__())
 	else:
-		#fsock.write(request.GET)
 		form = RegisterForm()
-		#return HttpResponse("<html><body>{0}  {1}</body></html>".format(request.POST, RegCode.objects.all()))
 	return render(request, 'login_page.html', {'form' : form, 'is_logged_in' : request.user.is_authenticated(), 'user_name': request.user})
 
 def home(request):

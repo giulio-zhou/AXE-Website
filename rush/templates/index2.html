@@ -1,0 +1,276 @@
+<!doctype htmsmall>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+  <title>Login | Alpha Chi Sigma, Sigma Chapter</title>
+
+  <link rel="shortcut icon" type="text/css" href="../static/img/favicon.ico">
+
+  <link rel="stylesheet" href="../static/css/normalize.css">
+  <link rel="stylesheet" href="../static/css/foundation.css">
+  <link rel="stylesheet" href="../static/css/axe.css">
+
+  <script src="../static/js/app.js"></script>
+  <script src="../static/js/vendor/modernizr.js"></script>
+</head>
+<body>
+  <!--header-->
+  <div class="contain-to-grid">
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="../home/">Alpha Chi Sigma</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <!-- Left Nav Section -->
+        <ul class="left">
+          <li class="divider"></li>
+          <li><a href="#" data-reveal-id="aboutUs">About Us</a></li>
+          <li class="divider"></li>
+          <li><a href="../events/">Events</a></li>
+          <li class="divider"></li>
+          <li class="has-dropdown">
+            <a href="../resources/">Resources</a>
+            <ul class="dropdown">
+              <li><a href="../resources/">Tutoring</a></li>
+              <li>
+                <a href="../resources/exams/">Test Bank</a>
+              </li>
+            </ul>
+          </li>
+          <li class="divider"></li>
+          <li class="has-dropdown">
+            <a href="../house-info/">House Info</a>
+            <ul class="dropdown">
+              <li><a href="../house-info/about/">About</a></li>
+              <li>
+                <a href="../house-info/rules/">Rules</a>
+              </li>
+              <li>
+                <a href="../house-info/gallery/">Gallery</a>
+              </li>
+              <li>
+                <a href="../house-info/faq/">FAQ</a>
+              </li>
+            </ul>
+          </li>
+          <li class="divider"></li>
+          <li><a href="../rush/"><strong>Rush AXΣ!</strong></a></li>
+          <li class="divider"></li>
+        </ul>
+
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <!--li class="has-form">
+            <div class="row collapse">
+              <div class="large-8 large-9 columns">
+                <input type="text" placeholder="Filler filler filler!">
+              </div>
+              <div class="large-4 large-3 columns">
+                <a href="#" class="alert button expand">Search</a>
+              </div>
+            </div>
+          </li-->
+          <li class="has-form">
+            <a href="../login/" class="button">Login</a>
+          </li>
+        </ul>
+      </section>
+    </nav>
+  </div>
+
+
+  <!--About blurb-->
+  <div id="aboutUs" class="reveal-modal" data-reveal>
+    <h2>What <em>about</em> us?</h2>
+    <p class="lead">You wanna say that to my face, punk?</p>
+    <p>Yeah, that's what I thought.</p>
+    <a class="close-reveal-modal">&#215;</a>
+  </div>
+
+  <!--header end, begin body-->
+    <div class="row">
+      <div class="large-12 columns">
+        <h1>Login</h1>
+      </div>
+    </div>
+
+  <div class="row">
+    <div class="large-6 small-12 columns">
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="panel text-center">
+            <form>
+              <div class="row">
+                <div class="large-12 columns">
+                  <h3>Existing User?</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="large-12 columns">
+                  <label>
+                    <input type="text" placeholder="Username" />
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="large-12 columns">
+                  <label>
+                    <input type="password" placeholder="Password" />
+                  </label>
+                </div>
+              </div>
+              <a href="../members" class="button expand small radius"><strong>Login!</strong></a>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="panel text-center">
+            <p>If you're an Alpha Chi Sigma member, you can login here to access all of our member-only content.</p>
+            <p>If you're not already a member, then <a href="../rush/">consider rushing</a>.  If you're having trouble logging in or registering, <a href="mailto:webmaster@axs.berkeley.edu">let us know</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="large-6 small-12 columns">
+      <div class="panel">
+        <form data-abide action="/gzhou/django_test/register/" method="post">
+          <div class="row">
+            <div class="large-12 columns">
+              <h3 class="text-center">New User?</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-6 columns">
+              <label>
+                <input type="text" placeholder="First Name" required pattern="[a-zA-Z\-\']+" />
+              </label>
+              <small class="error text-center">Valid name required</small>
+            </div>
+            <div class="large-6 columns">
+              <label>
+                <input type="text" placeholder="Last Name" required pattern="[a-zA-Z\-\']+" />
+              </label>
+              <small class="error text-center">Valid name required</small>
+            </div>
+          </div>
+          <div class="row collapse">
+            <div class="large-4 columns">
+              <label>
+                <input type="text" placeholder="Rush Year" required pattern="(19|20)[0-9]{2}" />
+              </label>
+              <small class="error text-center">Valid year required</small>
+            </div>
+           <div class="large-3 columns">
+              <select class="grayed" onchange="changeMe(this)">
+                <option class="grayed" value="default" disabled selected style="display:none;">Season</option>
+                <option class="grayed" value="spring">Spring</option>
+                <option class="grayed" value="fall">Fall</option>
+              </select>
+            </div>
+            <div class="large-4 columns">
+              <select class="grayed" onchange="changeMe(this)">
+                <option class="grayed" value="default" disabled selected style="display:none;">Current Year</option>
+                <option class="grayed" value="freshman">Freshman (1 year)</option>
+                <option class="grayed" value="sophomore">Sophomore (2 years)</option>
+                <option class="grayed" value="junior">Junior (3 years)</option>
+                <option class="grayed" value="senior">Senior (4 years)</option>
+                <option class="grayed" value="supersenior">Supersenior (5+ years)</option>
+                <option class="grayed" value="grad">Graduate Student</option>
+                <option class="grayed" value="alumnus">Alumnus</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-12 columns">
+              <label>
+                <input type="text" placeholder="[Intended] Major(s)" />
+              </label>
+            </div>
+          </div>
+          <div class="row collapse">
+            <div class="large-9 columns">
+              <label for="email">
+                <input name="email" id="email" type="text" placeholder="Email Address" required />
+              </label>
+              <small class="error text-center">Valid email address required</small>
+            </div>
+            <div class="large-3 columns">
+              <span class="postfix">@berkeley.edu</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-12 columns">
+              <label for="your_name">
+                <input name="your_name" id="your_name" type="text" placeholder="Username" />
+                <!--<input name="your_name" id="your_name" type="text" placeholder="Username" required pattern="alpha_numeric" />-->
+              </label>
+              <small class="error text-center">Alphanumeric username required</small>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-6 columns">
+              <label for="password">
+                <input id="password" type="password" name="password" placeholder="Password" required />
+              </label>
+              <small class="error text-center">Valid password required</small>
+            </div>
+            <div class="large-6 columns">
+              <label for="password_confirm">
+                <input id="password_confirm" type="password" data-equalto="password" name="password_confirm" placeholder="Confirm Password" required data-invalid="" />
+              </label>
+              <small class="error text-center" data-error-message="">Passwords must match.</small>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-12 columns">
+              <label for="regcode">
+                <input name="regcode" id="regcode" type="text" placeholder="Double-Secret Super Special Awesome Registration Code" required />
+              </label>
+              <small class="error text-center">Dude...it's, like, totally mandatory, man.  Whoa.  Dude.  Duuude.</small>
+            </div>
+          </div>
+          <a href="#" class="button expand small radius"><strong>Register!</strong></a>
+		  <input type="submit" class="buttom expand small radius" value="Register!">
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <hr />
+  </div>
+
+  <div class="row">
+    <div class="large-12 large-centered columns">
+      <div class="panel footer">
+        <p class="text-center"><small>this is build by the jo</small></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../static/js/vendor/jquery.js"></script>
+  <script src="../static/js/vendor/fastclick.js"></script>
+  <script src="../static/js/foundation.min.js"></script>
+  <script>
+  $(document).foundation();
+  </script>
+  <script type="text/javascript">
+    function changeMe(sel)
+    {
+      sel.style.color = "#000";              
+    }
+</script>
+
+
+</body>
+
+</html>
