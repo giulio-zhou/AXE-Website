@@ -97,4 +97,4 @@ def house(request):
     return render(request, 'house.html')
 
 def custom_404(request):
-	return render(request, '404.html')
+	return render(request, '404.html', {'is_logged_in': request.user.is_authenticated(), 'user_name': request.user})

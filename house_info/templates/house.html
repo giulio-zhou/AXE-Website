@@ -60,8 +60,12 @@
         </ul>
         <ul class="right">
           <li class="divider"></li>
-            <li class="has-dropdown hide">
-              <a href="#">Logged in!</a>
+			  {% if is_logged_in %}
+              <li class="has-dropdown">
+			  {% else %}
+              <li class="has-dropdown hide">
+			  {% endif %}
+              <a href="#">Logged in {{ user_name.first_name }} {{ user_name.last_name }}</a>
               <ul class="dropdown">
                 <li class="has-dropdown">
                   <a href="contacts/">Member List</a>
@@ -90,12 +94,15 @@
             </ul>
           </li>
           <li class="divider"></li>
+		{% if is_logged_in %}	
+        <li class="has-form">
+          <a href="http://axs.berkeley.edu/logout/" class="button">Logout</a>
+        </li>
+		{% else %}
         <li class="has-form">
           <a href="http://axs.berkeley.edu/login/" class="button">Login</a>
         </li>
-        <li class="has-form hide">
-          <a href="http://axs.berkeley.edu/logout/" class="button">Logout</a>
-        </li>
+		{% endif %}
         </ul>
       </section>
     </nav>

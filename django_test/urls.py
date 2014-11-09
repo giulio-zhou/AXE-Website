@@ -16,7 +16,7 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
 	#url('', 'page.views.welcome'),
     #url(r'^home/', 'page.views.home'),
-    url(r'^$', 'page.views.home'),
+    url(r'^$', include('home.urls')),
     url(r'^home/', include('home.urls')),
     #url(r'^login/', 'page.views.register'),
     url(r'^login/', 'page.views.register'),
@@ -25,7 +25,8 @@ urlpatterns = patterns('',
     url(r'^rush/', include('rush.urls')),
     url(r'^resources/', include('resources.urls')),
     #url(r'^rush/', 'page.views.rush'),
-    url(r'^house-info/', 'page.views.house'),
+    #url(r'^house-info/', 'page.views.house'),
+    url(r'^house-info/', include('house_info.urls')),
 )
 
 handler404 = 'page.views.custom_404'
