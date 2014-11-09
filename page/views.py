@@ -1,5 +1,5 @@
 # Create your views here.
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login, logout
@@ -95,3 +95,6 @@ def rush(request):
 
 def house(request):
     return render(request, 'house.html')
+
+def custom_404(request):
+	return render(request, '404.html')

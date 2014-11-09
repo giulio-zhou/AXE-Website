@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-
+import page
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
@@ -28,4 +28,4 @@ urlpatterns = patterns('',
     url(r'^house-info/', 'page.views.house'),
 )
 
-
+handler404 = 'page.views.custom_404'
