@@ -10,4 +10,7 @@ import sys, os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__)) + '/house_info/templates'
 
 def house_info(request):
+    if request.method == 'POST':
+        if 'logout' in request.POST:
+            logout(request)
     return render(request, BASE_DIR + '/house.html', {'is_logged_in': request.user.is_authenticated(), 'user_name': request.user})

@@ -30,7 +30,7 @@ urlpatterns = patterns('',
     url(r'^house-info/', include('house_info.urls')),
 )
 
-if  settings.DEBUG:
+if settings.DEBUG:
 	urlpatterns += patterns('', url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
 		'document_root': settings.MEDIA_ROOT,
 	}), )

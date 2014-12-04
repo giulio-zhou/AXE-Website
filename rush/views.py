@@ -10,4 +10,7 @@ import sys, os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__)) + '/rush/templates'
 
 def rush(request):
+    if request.method == 'POST':
+        if 'logout' in request.POST:
+            logout(request)
     return render(request, BASE_DIR + '/rush.html', {'is_logged_in': request.user.is_authenticated(), 'user_name': request.user})

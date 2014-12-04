@@ -146,9 +146,17 @@
           </li>
           <li class="divider"></li>
 		{% if is_logged_in %}
-        <li class="has-form">
+        <!--<li class="has-form">
           <a href="http://axs.berkeley.edu/logout/" class="button">Logout</a>
-        </li>
+        </li>-->
+          <li class="has-form">
+            <!--<a href="http://axs.berkeley.edu/logout/" class="button">Logout</a>-->
+            <form method="post">
+            {% csrf_token %}
+              <input name="logout" type="submit" class="button" value="Logout">
+            </form>
+          </li>
+
         {% else %}
         <li class="has-form">
           <a href="http://axs.berkeley.edu/login/" class="button">Login</a>
