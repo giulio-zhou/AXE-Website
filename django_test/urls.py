@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.conf.urls import patterns, include, url
 import page
 # Uncomment the next two lines to enable the admin:
@@ -27,6 +28,9 @@ urlpatterns = patterns('',
     #url(r'^rush/', 'page.views.rush'),
     #url(r'^house-info/', 'page.views.house'),
     url(r'^house-info/', include('house_info.urls')),
+	url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+		'document_root': settings.MEDIA_ROOT,
+	}),
 )
 
 handler404 = 'page.views.custom_404'

@@ -16,6 +16,7 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
 	#url('', 'page.views.welcome'),
     url(r'^$', 'resources.views.resources'),
+	url(r'^exams', 'resources.views.test_bank'),
     #url(r'^events/', 'page.views.events'),
 )
 
