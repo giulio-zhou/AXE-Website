@@ -1,4 +1,5 @@
 # Create your views here.
+from django.conf import settings
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 from django.shortcuts import redirect
@@ -98,3 +99,12 @@ def house(request):
 
 def custom_404(request):
 	return render(request, '404.html', {'is_logged_in': request.user.is_authenticated(), 'user_name': request.user})
+
+def serve_media(request, path):
+	print settings.MEDIA_ROOT, path
+	file_path = settings.MEDIA_ROOT + '/' + path
+	with open(file_path, 'r') as pdf:
+		response = HttpResponse(pdf.read(), content_type='application/pdf')
+		response['Content-Disposition'] = 'filename=' + path
+		return response
+	pdf.closed	

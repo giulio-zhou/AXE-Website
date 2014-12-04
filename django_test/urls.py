@@ -28,9 +28,13 @@ urlpatterns = patterns('',
     #url(r'^rush/', 'page.views.rush'),
     #url(r'^house-info/', 'page.views.house'),
     url(r'^house-info/', include('house_info.urls')),
-	url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
-		'document_root': settings.MEDIA_ROOT,
-	}),
 )
+
+if  settings.DEBUG:
+	urlpatterns += patterns('', url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+		'document_root': settings.MEDIA_ROOT,
+	}), )
+else:
+	urlpatterns += patterns('', url(r'^media/(?P<path>.*)$', 'page.views.serve_media'), )
 
 handler404 = 'page.views.custom_404'
