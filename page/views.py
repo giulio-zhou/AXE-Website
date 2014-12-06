@@ -7,7 +7,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from page.models import LoginForm, RegisterForm, RegCode, Member
-import sys
+import sys, os
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # Create your views here.
 def hello(request):
@@ -102,7 +103,7 @@ def custom_404(request):
 
 def serve_media(request, path):
 	print settings.MEDIA_ROOT, path
-	file_path = settings.MEDIA_ROOT + '/' + path
+	file_path = BASE_DIR + '/' + settings.MEDIA_ROOT + '/' + path
 	with open(file_path, 'r') as pdf:
 		response = HttpResponse(pdf.read(), content_type='application/pdf')
 		response['Content-Disposition'] = 'filename=' + path
