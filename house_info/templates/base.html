@@ -1,0 +1,124 @@
+<!doctype htmsmall>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+  <title>Home | Alpha Chi Sigma, Sigma Chapter</title>
+
+  <link rel="shortcut icon" type="text/css" href="http://axs.berkeley.edu/static/img/favicon.ico">
+
+  <link rel="stylesheet" href="http://axs.berkeley.edu/static/css/normalize.css">
+  <link rel="stylesheet" href="http://axs.berkeley.edu/static/css/foundation.css">
+  <link rel="stylesheet" href="http://axs.berkeley.edu/static/css/axe.css">
+
+  <script src="http://axs.berkeley.edu/static/js/app.js"></script>
+  <script src="http://axs.berkeley.edu/static/js/vendor/modernizr.js"></script>
+</head>
+<body>
+  <div class="contain-to-grid">
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="http://axs.berkeley.edu/home/">Alpha Chi Sigma</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+      </ul>
+      <section class="top-bar-section">
+        <ul class="left">
+          <li class="divider"></li>
+          <li><a href="http://axs.berkeley.edu/rush/"><strong>Rush AXΣ!</strong></a></li>
+          <li class="divider"></li>
+          <li><a href="http://axs.berkeley.edu/events/">Events</a></li>
+          <li class="divider"></li>
+          <li class="has-dropdown">
+            <a href="http://axs.berkeley.edu/resources/">Resources</a>
+            <ul class="dropdown">
+              <li><a href="http://axs.berkeley.edu/resources/">Tutoring</a></li>
+              <li>
+                <a href="http://axs.berkeley.edu/resources/exams/">Test Bank</a>
+              </li>
+            </ul>
+          </li>
+          <li class="divider"></li>
+          <li class="has-dropdown">
+            <a href="http://axs.berkeley.edu/house-info/">House Info</a>
+            <ul class="dropdown">
+              <li><a href="http://axs.berkeley.edu/house-info/about/">About</a></li>
+              <li>
+                <a href="http://axs.berkeley.edu/house-info/rules/">Rules</a>
+              </li>
+              <li>
+                <a href="http://axs.berkeley.edu/house-info/gallery/">Gallery</a>
+              </li>
+              <li>
+                <a href="http://axs.berkeley.edu/house-info/faq/">FAQ</a>
+              </li>
+            </ul>
+          </li>
+          <li class="divider"></li>
+        </ul>
+        <ul class="right">
+          <li class="divider"></li>
+			  {% if is_logged_in %}
+	          <li class="has-dropdown">
+			  {% else %}
+	          <li class="has-dropdown hide">
+			  {% endif %}	
+              <a href="#">Logged in as {{ user_name.first_name }} {{ user_name.last_name}}</a>
+              <ul class="dropdown">
+                <li class="has-dropdown">
+                  <a href="contacts/">Member List</a>
+                  <ul class="dropdown">
+                    <li class="back"><a href="officers/">Officers</a></li>
+                    <li><a href="contacts/">Contact Info</a></li>
+                    <li><a href="familytree/">Family Tree</a></li>
+                  </ul>
+                </li>
+                <li class="has-dropdown">
+                  <a href="gallery/">Gallery</a>
+                  <ul class="dropdown">
+                    <li class="back"><a href="gallery/photos/">Photos</a></li>
+                    <li><a href="gallery/videos/">Videos</a></li>
+                  </ul>
+                </li>
+                <li class="has-dropdown">
+                  <a href="resources/">Member Resources</a>
+                  <ul class="dropdown">
+                    <li><a href="resources/problem-sets/">Problem Sets</a></li>
+                  </li>
+                  <li><a href="resources/forms/">Forms</a></li>
+                  <li><a href="resources/bylaws/">Bylaws</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="divider"></li>
+		{% if is_logged_in %}
+        <!--<li class="has-form">
+          <a href="http://axs.berkeley.edu/logout/" class="button">Logout</a>
+        </li>-->
+          <li class="has-form">
+            <!--<a href="http://axs.berkeley.edu/logout/" class="button">Logout</a>-->
+            <form method="post">
+            {% csrf_token %}
+              <input name="logout" type="submit" class="button" value="Logout">
+            </form>
+          </li>
+
+		{% else %}
+        <li class="has-form">
+          <a href="http://axs.berkeley.edu/login/" class="button">Login</a>
+        </li>
+		{% endif %}
+        </ul>
+      </section>
+    </nav>
+  </div>
+
+  <br />
+
+</body>
+</html>
+
+
