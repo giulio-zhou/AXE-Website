@@ -143,6 +143,7 @@ INSTALLED_APPS = (
     'house_info',
     'rush',
     'events',
+	'user_profile',
 )
 
 # A sample logging configuration. The only tangible logging

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
-  <title>Home | Alpha Chi Sigma, Sigma Chapter</title>
+  <title>House Info | Alpha Chi Sigma, Sigma Chapter</title>
 
   <link rel="shortcut icon" type="text/css" href="http://axs.berkeley.edu/static/img/favicon.ico">
 
@@ -41,8 +41,8 @@
             </ul>
           </li>
           <li class="divider"></li>
-          <li class="has-dropdown">
-            <a href="http://axs.berkeley.edu/house-info/">House Info</a>
+          <li class="has-dropdown active">
+            <a href="#">House Info</a>
             <ul class="dropdown">
               <li><a href="http://axs.berkeley.edu/house-info/about/">About</a></li>
               <li>
@@ -60,12 +60,8 @@
         </ul>
         <ul class="right">
           <li class="divider"></li>
-			  {% if is_logged_in %}
-	          <li class="has-dropdown">
-			  {% else %}
-	          <li class="has-dropdown hide">
-			  {% endif %}	
-              <a href="http://axs.berkeley.edu/profile">Logged in as {{ user_name.first_name }} {{ user_name.last_name}}</a>
+            <li class="has-dropdown hide">
+              <a href="#">Logged in!</a>
               <ul class="dropdown">
                 <li class="has-dropdown">
                   <a href="contacts/">Member List</a>
@@ -94,31 +90,89 @@
             </ul>
           </li>
           <li class="divider"></li>
-		{% if is_logged_in %}
-        <!--<li class="has-form">
-          <a href="http://axs.berkeley.edu/logout/" class="button">Logout</a>
-        </li>-->
-          <li class="has-form">
-            <!--<a href="http://axs.berkeley.edu/logout/" class="button">Logout</a>-->
-            <form method="post">
-            {% csrf_token %}
-              <input name="logout" type="submit" class="button" value="Logout">
-            </form>
-          </li>
-
-		{% else %}
         <li class="has-form">
           <a href="http://axs.berkeley.edu/login/" class="button">Login</a>
         </li>
-		{% endif %}
+        <li class="has-form hide">
+          <a href="http://axs.berkeley.edu/logout/" class="button">Logout</a>
+        </li>
         </ul>
       </section>
     </nav>
   </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <h1>House Information</h1>
+    </div>
+  </div>
+  <div class="row" data-equalizer>
+    <div class="large-6 columns">
+      <div class="panel" data-equalizer-watch>
+        <h2><a href="about/">About</a></h2>
+        <p>Interested in living in the AXΣ house?  Here you'll find directions to the house and contact information.</p>
+      </div>
+    </div>
+    <div class="large-6 columns">
+      <div class="panel" data-equalizer-watch>
+        <h2><a href="rules/">Rules and Bylaws</a></h2>
+        <p>Here you can read or download the official house rules and bylaws.</p>
+      </div>
+    </div>
+  </div>
+  <div class="row" data-equalizer>
+    <div class="large-6 columns">
+      <div class="panel" data-equalizer-watch>
+        <h2><a href="gallery/">Gallery</a></h2>
+        <p>Interested in looking around?  We've got you covered.</p>
+      </div>
+    </div>
+    <div class="large-6 columns">
+      <div class="panel" data-equalizer-watch>
+        <h2><a href="faq/">FAQ</a></h2>
+        <p>Got questions?  Hopefully they're frequently-asked!</p>
+      </div>
+    </div>
+  </div>
 
-  <br />
+
+  <div class="row">
+    <hr />
+  </div>
+
+  <div class="row">
+    <div class="small-12 small-centered columns">
+      <div class="panel footer">
+        <div class="row">
+          <div class="small-2 columns">
+            &nbsp;
+          </div>
+          <div class="small-8 columns">
+            <h6 class="text-center"><small>&copy; 2014 Alpha Chi Sigma, Sigma Chapter</small></h6>
+            <h6 class="text-center"><small>If you have any questions, comments, or concerns, <a href="mailto:webmaster@axs.berkeley.edu">please let us know</a>.</small></h6>
+            <h6 class="text-center"><small>This website was created using <a href="http://foundation.zurb.com/">Zurb Foundation 5.2.2</a> and <a href="https://www.djangoproject.com/">Django 1.4.5</a>.</small></h6>
+            <h6 class="text-center show-for-large-up"><small>We are a student group acting independently of the UC System. We take full responsibility for our organization and this website.</small></h6>
+            <h6 class="text-center hide-for-large-up"><small>We are a student group acting independently of the UC System.</small></h6>
+            <h6 class="text-center hide-for-large-up"><small>We take full responsibility for our organization and this website.</small></h6>
+            <h6 class="text-center"><small><a href="http://www.alphachisigma.org/">Alpha Chi Sigma National</a> | <a href="http://chemistry.berkeley.edu/">College of Chemistry</a> | <a href="http://berkeley.edu/">UC Berkeley</a></small></h6>
+          </div>
+          <div class="small-2 columns">
+            <br />
+            <a class="right" href="http://www.ocf.berkeley.edu">
+              <img src="http://axs.berkeley.edu/static/img/ocfbadge_mini8dark.png" alt="Hosted by the OCF" width="98" height="39" style="border:0" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="http://axs.berkeley.edu/static/js/vendor/jquery.js"></script>
+  <script src="http://axs.berkeley.edu/static/js/vendor/fastclick.js"></script>
+  <script src="http://axs.berkeley.edu/static/js/foundation.min.js"></script>
+  <script>
+  $(document).foundation();
+  </script>
+
 
 </body>
+
 </html>
-
-

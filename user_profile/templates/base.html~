@@ -65,7 +65,7 @@
 			  {% else %}
 	          <li class="has-dropdown hide">
 			  {% endif %}	
-              <a href="http://axs.berkeley.edu/profile">Logged in as {{ user_name.first_name }} {{ user_name.last_name}}</a>
+              <a href="#">Logged in as {{ user_name.first_name }} {{ user_name.last_name}}</a>
               <ul class="dropdown">
                 <li class="has-dropdown">
                   <a href="contacts/">Member List</a>
@@ -120,5 +120,6 @@
 
 </body>
 </html>
+
 
 

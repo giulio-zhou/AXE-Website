@@ -62,12 +62,12 @@ def register(request):
 						regcode.delete()
 						user = User.objects.create_user(form.cleaned_data['your_name'],
 									form.cleaned_data['email'] + '@berkeley.edu', form.cleaned_data['password'])
-						user.member = Member(pledge_year=form.cleaned_data['pledge_year'], fall_pledge=True,
+						member = Member(user=user, pledge_year=form.cleaned_data['pledge_year'], fall_pledge=True,
 							                                                    year_in_school=2, major=form.cleaned_data['major'])
 						user.first_name = form.cleaned_data['first_name']
 						user.last_name = form.cleaned_data['last_name']
 						user.save()
-						user.member.save()
+						member.save()
 						return HttpResponse("<html><body>Successfully Registered User %s!</body></html>" % form.cleaned_data['your_name'])
 				except RegCode.DoesNotExist:
 					print 'Registration Code Does Not Exist'

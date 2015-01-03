@@ -18,8 +18,8 @@ class Member(models.Model):
     fall_pledge = models.BooleanField(default=False)
     year_in_school = models.IntegerField()
     major = models.CharField(max_length=100, blank=True)
-    #def __unicode__(self):
-    #    return self.user.username
+    def __unicode__(self):
+        return self.user.username
 
 class LoginForm(forms.Form):
 	your_name = forms.CharField(label='Your Name', max_length=100)
