@@ -1,0 +1,68 @@
+{% include 'base.html' %}
+<html>
+<body>
+  <div class="row">
+    <div class="large-12 columns">
+		<h1> User Profile for {{user.first_name}} {{user.last_name}} </h1>
+    </div>
+  </div>
+  <div class="row" data-equalizer>
+    <div class="large-6 columns">
+      <div class="panel" data-equalizer-watch>
+        <h2>Picture</h2>
+		<p>Here is a picture.	</p>
+      </div>
+    </div>
+    <div class="large-6 columns">
+      <div class="panel" data-equalizer-watch>
+        <h2>Description</h2>
+		<p>Year in school: {{ user_profile.year_in_school }} </p>
+		<p>Major: {{ user_profile.major }} </p>
+		<p>Pledge Semester: {{ user_profile.fall_pledge }} </p>
+		<p>Pledge Year: {{ user_profile.pledge_year }} </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <hr />
+  </div>
+
+  <div class="row">
+    <div class="small-12 small-centered columns">
+      <div class="panel footer">
+        <div class="row">
+          <div class="small-2 columns">
+            &nbsp;
+          </div>
+          <div class="small-8 columns">
+            <h6 class="text-center"><small>&copy; 2014 Alpha Chi Sigma, Sigma Chapter</small></h6>
+            <h6 class="text-center"><small>If you have any questions, comments, or concerns, <a href="mailto:webmaster@axs.berkeley.edu">please let us know</a>.</small></h6>
+            <h6 class="text-center"><small>This website was created using <a href="http://foundation.zurb.com/">Zurb Foundation 5.2.2</a> and <a href="https://www.djangoproject.com/">Django 1.4.5</a>.</small></h6>
+            <h6 class="text-center show-for-large-up"><small>We are a student group acting independently of the UC System. We take full responsibility for our organization and this website.</small></h6>
+            <h6 class="text-center hide-for-large-up"><small>We are a student group acting independently of the UC System.</small></h6>
+            <h6 class="text-center hide-for-large-up"><small>We take full responsibility for our organization and this website.</small></h6>
+            <h6 class="text-center"><small><a href="http://www.alphachisigma.org/">Alpha Chi Sigma National</a> | <a href="http://chemistry.berkeley.edu/">College of Chemistry</a> | <a href="http://berkeley.edu/">UC Berkeley</a></small></h6>
+          </div>
+          <div class="small-2 columns">
+            <br />
+            <a class="right" href="http://www.ocf.berkeley.edu">
+              <img src="http://axs.berkeley.edu/static/img/ocfbadge_mini8dark.png" alt="Hosted by the OCF" width="98" height="39" style="border:0" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="http://axs.berkeley.edu/static/js/vendor/jquery.js"></script>
+  <script src="http://axs.berkeley.edu/static/js/vendor/fastclick.js"></script>
+  <script src="http://axs.berkeley.edu/static/js/foundation.min.js"></script>
+  <script>
+  $(document).foundation();
+  </script>
+
+
+</body>
+
+</html>
