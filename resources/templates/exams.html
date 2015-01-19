@@ -13,8 +13,8 @@
   <link rel="stylesheet" href="http://axs.berkeley.edu/static/css/dataTables.foundation.css">
   <link rel="stylesheet" href="http://axs.berkeley.edu/static/css/axe.css">
 
-	<link type="text/css" media="screen" rel="stylesheet" href="http://axs.berkeley.edu/static/css/responsive-tables.css" />
-	<script type="text/javascript" src="http://axs.berkeley.edu/static/js/responsive-tables.js"></script>
+    <link type="text/css" media="screen" rel="stylesheet" href="http://axs.berkeley.edu/static/css/responsive-tables.css" />
+    <script type="text/javascript" src="http://axs.berkeley.edu/static/js/responsive-tables.js"></script>
 
 
   <script src="http://axs.berkeley.edu/static/js/vendor/jquery.js"></script>
@@ -22,11 +22,11 @@
   <script src="http://axs.berkeley.edu/static/js/vendor/modernizr.js"></script>
   <script src="http://axs.berkeley.edu/static/js/vendor/jquery.dataTables.min.js"></script>
   <script src="http://axs.berkeley.edu/static/js/dataTables.foundation2.js"></script>
-	<script type="text/javascript" charset="utf-8">
-		$(document).ready(function() {
-			$('#midterms').dataTable();
-		} );
-	</script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function() {
+            $('#midterms').dataTable();
+        } );
+    </script>
 </head>
 
 <body>
@@ -111,7 +111,7 @@
             </ul>
           </li>
           <li class="divider"></li>
-		{% if is_logged_in %}
+        {% if is_logged_in %}
         <li class="has-form">
           <a href="http://axs.berkeley.edu/logout/" class="button">Logout</a>
         </li>
@@ -126,75 +126,77 @@
   </div>
 
   <!--header end, begin body-->
-		<div class="row">
-			<div class="large-12 small-12 columns">
-					<h1>Practice Exams</h1>
-			<div class="panel">
-				<p>As one of the oldest extant chemistry societies at Berkeley, we've amassed quite a stockpile of past chemistry and chemical engineering exams.</p>
+        <div class="row">
+            <div class="large-12 small-12 columns">
+                    <h1>Practice Exams</h1>
+            <div class="panel">
+                <p>As one of the oldest extant chemistry societies at Berkeley, we've amassed quite a stockpile of past chemistry and chemical engineering exams.</p>
         <p>These exams were collected solely to aid students in studying for their exams, and are available to the public solely for such a purpose.</p>
         <p>Use the search functionality to narrow down the exams you're looking for (for instance, by course or instructor), and use the table headers to sort by a parameter.</p>
         <p>If you are an instructor and would like us to remove any of your exams, please contact <a href="mailto:webmaster@axe.berkeley.edu?subject=Practice Exam Takedown Request">webmaster@axe.berkeley.edu</a>.</p>
-			</div>
-				
-	<div id="exams" class="panel">
-		<table cellpadding="0" cellspacing="0" border="0" class="display bank" id="midterms" width="100%" class="responsive">
-	        <col style="width:30%">
-	        <col style="width:25%">
-	        <col style="width:9%">
-	        <col style="width:11%">
-	        <col style="width:7%">
-	        <col style="width:11%">
-	        <col style="width:8%">
-			<thead>
-				<tr>
-					<th>Instructor</th>
-					<th>Subject</th>
-					<th>Course</th>
-					<th>Exam</th>
-					<th>Key?</th>
-					<th>Term</th>
-					<th>Year</th>
-				</tr>
-			</thead>
-			<tbody>
-			{% for exam in exams %}
-				<tr>
-					<td>
-						<a href="{{ BASE_URL }}/{{ MEDIA_ROOT }}/exams/{{ exam.pdf_path }}" class="dl">
-							{{ exam.instructor }}
-						</a>
-					</td>
-					<td>{{ exam.subject }}</td>
-					<td>{{ exam.course }}</td>
-					<td>{{ exam.exam }}</td>
-					{% if exam.key %}
-					<td>Yes</td>
-					{% else %}	
-					<td>No</td>
-					{% endif %}
-					<td>{{ exam.term }}</td>
-					<td>{{ exam.year }}</td>
-				</tr>
-			{% endfor %}	
+            </div>
+                
+    <div id="exams" class="panel">
+        <table cellpadding="0" cellspacing="0" border="0" class="display bank" id="midterms" width="100%" class="responsive">
+            <col style="width:30%">
+            <col style="width:25%">
+            <col style="width:9%">
+            <col style="width:11%">
+            <col style="width:7%">
+            <col style="width:11%">
+            <col style="width:8%">
+            <thead>
+                <tr>
+                    <th>Instructor</th>
+                    <th>Subject</th>
+                    <th>Course</th>
+                    <th>Exam</th>
+                    <th>Key?</th>
+                    <th>Term</th>
+                    <th>Year</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for exam in exams %}
+                {% if exam.approved %} 
+                <tr>
+                    <td>
+                        <a href="{{ BASE_URL }}/{{ MEDIA_ROOT }}/exams/{{ exam.pdf_path }}" class="dl">
+                            {{ exam.instructor }}
+                        </a>
+                    </td>
+                    <td>{{ exam.subject }}</td>
+                    <td>{{ exam.course }}</td>
+                    <td>{{ exam.exam }}</td>
+                    {% if exam.key %}
+                    <td>Yes</td>
+                    {% else %}  
+                    <td>No</td>
+                    {% endif %}
+                    <td>{{ exam.term }}</td>
+                    <td>{{ exam.year }}</td>
+                </tr>
+                {% endif %}
+            {% endfor %}    
 
-			</tbody>
-			<tfoot>
-				<tr>
-					<th>Instructor</th>
-					<th>Subject</th>
-					<th>Course</th>
-					<th>Exam</th>
-					<th>Key?</th>
-					<th>Term</th>
-					<th>Year</th>
-				</tr>
-			</tfoot>
-		</table>
-				</div>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Instructor</th>
+                    <th>Subject</th>
+                    <th>Course</th>
+                    <th>Exam</th>
+                    <th>Key?</th>
+                    <th>Term</th>
+                    <th>Year</th>
+                </tr>
+            </tfoot>
+        </table>
+                </div>
 
-			</div>
-		</div>
-			
+            </div>
+        </div>
+            
 
   <div class="row">
     <hr />
@@ -230,7 +232,7 @@
   <script src="http://axs.berkeley.edu/static/js/vendor/fastclick.js"></script>
   <script src="http://axs.berkeley.edu/static/js/foundation.min.js"></script>
   <script>
-  	$(document).foundation();
+    $(document).foundation();
   </script>
 
 
