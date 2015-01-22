@@ -17,6 +17,7 @@ urlpatterns = patterns('',
 	#url('', 'page.views.welcome'),
     url(r'^$', 'resources.views.resources'),
 	url(r'^exams', 'resources.views.test_bank'),
+	url(r'^exam_upload', 'resources.views.upload_exam'),
     #url(r'^events/', 'page.views.events'),
 )
 

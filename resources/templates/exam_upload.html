@@ -1,0 +1,184 @@
+<!doctype htmsmall>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+  <title>Exams | Alpha Chi Sigma, Sigma Chapter</title>
+
+  <link rel="shortcut icon" type="text/css" href="http://axs.berkeley.edu/static/img/favicon.ico">
+
+  <link rel="stylesheet" href="http://axs.berkeley.edu/static/css/normalize.css">
+  <link rel="stylesheet" href="http://axs.berkeley.edu/static/css/foundation.css">
+  <link rel="stylesheet" href="http://axs.berkeley.edu/static/css/dataTables.foundation.css">
+  <link rel="stylesheet" href="http://axs.berkeley.edu/static/css/axe.css">
+
+    <link type="text/css" media="screen" rel="stylesheet" href="http://axs.berkeley.edu/static/css/responsive-tables.css" />
+    <script type="text/javascript" src="http://axs.berkeley.edu/static/js/responsive-tables.js"></script>
+
+
+  <script src="http://axs.berkeley.edu/static/js/vendor/jquery.js"></script>
+  <script src="http://axs.berkeley.edu/static/js/app.js"></script>
+  <script src="http://axs.berkeley.edu/static/js/vendor/modernizr.js"></script>
+  <script src="http://axs.berkeley.edu/static/js/vendor/jquery.dataTables.min.js"></script>
+  <script src="http://axs.berkeley.edu/static/js/dataTables.foundation2.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function() {
+            $('#midterms').dataTable();
+        } );
+    </script>
+</head>
+
+<body>
+  <!--header-->
+  <div class="contain-to-grid">
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="http://axs.berkeley.edu/home">Alpha Chi Sigma</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <ul class="left">
+          <li class="divider"></li>
+          <li><a href="http://axs.berkeley.edu/rush/"><strong>Rush AXΣ!</strong></a></li>
+          <li class="divider"></li>
+          <li><a href="http://axs.berkeley.edu/events/">Events</a></li>
+          <li class="divider"></li>
+          <li class="has-dropdown active">
+            <a href="#">Resources</a>
+            <ul class="dropdown">
+              <li><a href="http://axs.berkeley.edu/resources/">Tutoring</a></li>
+              <li>
+                <a href="http://axs.berkeley.edu/resources/exams/">Test Bank</a>
+              </li>
+            </ul>
+          </li>
+          <li class="divider"></li>
+          <li class="has-dropdown">
+            <a href="http://axs.berkeley.edu/house-info/">House Info</a>
+            <ul class="dropdown">
+              <li><a href="http://axs.berkeley.edu/house-info/about/">About</a></li>
+              <li>
+                <a href="http://axs.berkeley.edu/house-info/rules/">Rules</a>
+              </li>
+              <li>
+                <a href="http://axs.berkeley.edu/house-info/gallery/">Gallery</a>
+              </li>
+              <li>
+                <a href="http://axs.berkeley.edu/house-info/faq/">FAQ</a>
+              </li>
+            </ul>
+          </li>
+          <li class="divider"></li>
+        </ul>
+
+        <ul class="right">
+          <li class="divider"></li>
+            {% if is_logged_in %}
+            <li class="has-dropdown">
+            {% else %}
+            <li class="has-dropdown hide">
+            {% endif %}
+              <a href="#">Logged in as {{ user_name.first_name }} {{ user_name.last_name}}</a>
+              <ul class="dropdown">
+                <li class="has-dropdown">
+                  <a href="contacts/">Member List</a>
+                  <ul class="dropdown">
+                    <li class="back"><a href="officers/">Officers</a></li>
+                    <li><a href="contacts/">Contact Info</a></li>
+                    <li><a href="familytree/">Family Tree</a></li>
+                  </ul>
+                </li>
+                <li class="has-dropdown">
+                  <a href="gallery/">Gallery</a>
+                  <ul class="dropdown">
+                    <li class="back"><a href="gallery/photos/">Photos</a></li>
+                    <li><a href="gallery/videos/">Videos</a></li>
+                  </ul>
+                </li>
+                <li class="has-dropdown">
+                  <a href="resources/">Member Resources</a>
+                  <ul class="dropdown">
+                    <li><a href="resources/problem-sets/">Problem Sets</a></li>
+                  </li>
+                  <li><a href="resources/forms/">Forms</a></li>
+                  <li><a href="resources/bylaws/">Bylaws</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="divider"></li>
+        {% if is_logged_in %}
+        <li class="has-form">
+          <a href="http://axs.berkeley.edu/logout/" class="button">Logout</a>
+        </li>
+        {% else %}
+        <li class="has-form">
+          <a href="http://axs.berkeley.edu/login/" class="button">Login</a>
+        </li>
+        {% endif %}
+        </ul>
+      </section>
+    </nav>
+  </div>
+
+  <!--header end, begin body-->
+        <div class="row">
+            <div class="large-12 small-12 columns">
+                    <h1>Practice Exams</h1>
+            <div class="panel">
+                <p>As one of the oldest extant chemistry societies at Berkeley, we've amassed quite a stockpile of past chemistry and chemical engineering exams.</p>
+        <p>These exams were collected solely to aid students in studying for their exams, and are available to the public solely for such a purpose.</p>
+        <p>Use the search functionality to narrow down the exams you're looking for (for instance, by course or instructor), and use the table headers to sort by a parameter.</p>
+        <p>If you are an instructor and would like us to remove any of your exams, please contact <a href="mailto:webmaster@axe.berkeley.edu?subject=Practice Exam Takedown Request">webmaster@axe.berkeley.edu</a>.</p>
+    
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" value="Submit" />
+            </form>
+            </div>
+                
+  <div class="row">
+    <hr />
+  </div>
+
+<div class="row">
+    <div class="small-12 small-centered columns">
+      <div class="panel footer">
+        <div class="row">
+          <div class="small-2 columns">
+            &nbsp;
+          </div>
+          <div class="small-8 columns">
+            <h6 class="text-center"><small>&copy; 2014 Alpha Chi Sigma, Sigma Chapter</small></h6>
+            <h6 class="text-center"><small>If you have any questions, comments, or concerns, <a href="mailto:webmaster@axs.berkeley.edu">please let us know</a>.</small></h6>
+            <h6 class="text-center"><small>This website was created using <a href="http://foundation.zurb.com/">Zurb Foundation 5.2.2</a> and <a href="https://www.djangoproject.com/">Django 1.4.5</a>.</small></h6>
+            <h6 class="text-center show-for-large-up"><small>We are a student group acting independently of the UC System. We take full responsibility for our organization and this website.</small></h6>
+            <h6 class="text-center hide-for-large-up"><small>We are a student group acting independently of the UC System.</small></h6>
+            <h6 class="text-center hide-for-large-up"><small>We take full responsibility for our organization and this website.</small></h6>
+            <h6 class="text-center"><small><a href="http://www.alphachisigma.org/">Alpha Chi Sigma National</a> | <a href="http://chemistry.berkeley.edu/">College of Chemistry</a> | <a href="http://berkeley.edu/">UC Berkeley</a></small></h6>
+          </div>
+          <div class="small-2 columns">
+            <br />
+            <a class="right" href="http://www.ocf.berkeley.edu">
+              <img src="http://axs.berkeley.edu/static/img/ocfbadge_mini8dark.png" alt="Hosted by the OCF" width="98" height="39" style="border:0" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="http://axs.berkeley.edu/static/js/vendor/fastclick.js"></script>
+  <script src="http://axs.berkeley.edu/static/js/foundation.min.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+
+
+</body>
+</html>
