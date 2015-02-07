@@ -30,7 +30,7 @@ TERM = (
 
 class ExamForm(forms.Form):
     instructor = forms.CharField(max_length=100, label='Instructor')
-    key = forms.BooleanField()
+    key = forms.BooleanField(required=False)
     term = forms.ChoiceField(choices=TERM, required=True, label='Term')
     subject = forms.CharField(max_length=50)
     course = forms.CharField(max_length=50)
